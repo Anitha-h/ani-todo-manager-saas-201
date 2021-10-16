@@ -5,10 +5,14 @@
         </div>
         <ul>
         <% todos.each do |todo| %>
+        <% if section_title == "Overdue" %>
+         <% if !todo.completed %>
           <li class="TodoItem">
             <label class="TodoItem-container">
               <input class="TodoItem-checkbox" type="checkbox">
-              <%= todo.todo_text %>
+
+                    <%= todo.todo_text %>
+
               <% if show_due_date %>
              <p class="TodoItem-dueDate"> <%= todo.due_date.to_s(:short) %></p>
              <% end %>
@@ -16,7 +20,37 @@
                 <img src="delete.svg"></a>
             </label>
           </li>
+           <% end %>
+          <% end %>
+
+         <% if section_title != "Overdue" %>
+
+          <li class="TodoItem">
+            <label class="TodoItem-container">
+            <% if todo.completed %>
+             <input class="TodoItem-checkbox" type="checkbox" checked>
+
+                  <p class="linestyle">  <%= todo.todo_text %></p>
+
+              <% end %>
+              <% if !todo.completed %>
+             <input class="TodoItem-checkbox" type="checkbox" >
+
+                    <%= todo.todo_text %>
+
+              <% end %>
+              <% if show_due_date %>
+             <p class="TodoItem-dueDate"> <%= todo.due_date.to_s(:short) %></p>
+             <% end %>
+              <a class="TodoItem-delete" href="javascript:void(0)">
+                <img src="delete.svg"></a>
+            </label>
+          </li>
+
+          <% end %>
+
           <% end %>
         </ul>
-        </div>
+
+
  </section>
