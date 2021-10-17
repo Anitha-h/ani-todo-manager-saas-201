@@ -12,7 +12,7 @@ class TodosController < ApplicationController
     todo = Todo.find(id)
     #render plain:"The id you entered was #{id}"
     #render plain: todo.to_pleasant_string
-    render "todo"
+    #render "todo"
   end
 
   def create
