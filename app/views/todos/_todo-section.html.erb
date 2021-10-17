@@ -7,14 +7,18 @@
       <% todos.each do |todo| %>
           <li class="TodoItem">
               <label class="TodoItem-container">
-                <% if todo.completed %>
-                    <input class="TodoItem-checkbox" type="checkbox" checked>
-                        <p class="linestyle">  <%= todo.todo_text %> </p>
-                    <% end %>
-                    <% if !todo.completed %>
-                    <input class="TodoItem-checkbox" type="checkbox">
+
+                     <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
+                    <input class="TodoItem-checkbox" name="completed"
+                     type="checkbox" <%= todo.completed ? "checked" : " " %>
+                     onclick="this.form.submit()"
+                     />
+                     <% end %>
+                    <p class='<%= todo.completed ? "linestyle" : " " %>'>
                         <%= todo.todo_text %>
-                    <% end %>
+                    </p>
+
+
                     <% if show_due_date %>
                        <p class="TodoItem-dueDate"> <%= todo.due_date.to_s(:short) %>  </p>
                     <% end %>
