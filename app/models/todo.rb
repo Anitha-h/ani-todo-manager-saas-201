@@ -1,4 +1,7 @@
 class Todo < ActiveRecord::Base
+  belongs_to :user
+  #table called users
+  #todos table will contain"user_id"
   def due_today?
     due_date == Date.due_today
   end
