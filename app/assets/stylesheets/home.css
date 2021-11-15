@@ -6,3 +6,9 @@ margin-bottom: 30px;
   font-size:16x;
   margin-bottom: 20px;
 }
+.UserHeader{
+  padding:10px;
+  background-color: lightgray;
+  font-size : 14px;
+  margin-bottom:10px
+}
