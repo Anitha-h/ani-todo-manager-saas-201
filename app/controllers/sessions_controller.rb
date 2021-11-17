@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
       redirect_to "/"
-      render plain: "You have entered correct password"
+      #render plain: "You have entered correct password"
     else
       render plain: "Incorrect password"
     end
