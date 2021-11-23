@@ -5,7 +5,8 @@
      <%= form_with(url: "/todos", method: "post", class: "AddToDo") do %>
        <%= text_field_tag :todo_text, "",
                           placeholder: "whats next?",
-                          class: "AddTodo-text" %>
+                          class: "AddTodo-text",
+                          autofocus: "autofocus" %>
        <%= date_field_tag :'due_date',
                           nil,
                           class: "AddTodo-date" %>
